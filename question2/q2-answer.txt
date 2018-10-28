@@ -1,0 +1,3 @@
+2. The lambda function is more efficient on memory because it does not store the function in memory, 
+and instead just applies it to the arguments provided, while the function we define is bound to the
+variable we chose to name the function, and is stored in memory when the program runs.
