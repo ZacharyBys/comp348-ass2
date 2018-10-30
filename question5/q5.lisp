@@ -1,0 +1,21 @@
+(defun is-bst (tree)
+   (setq leftTree (car (cdr tree)))
+   (setq rightTree (car (cdr (cdr tree))))
+   (setq currentValue (car tree))
+   ( cond
+        (
+            (not (numberp (car tree))) 
+            (return-from is-bst t)
+        )
+   )
+   (if (and (numberp (car leftTree)) (> (car leftTree) currentValue))
+        (return-from is-bst NIL)
+   )
+   (if (and (numberp (car rightTree)) (< (car rightTree) currentValue))
+        (return-from is-bst NIL)
+   )
+   (return-from is-bst (and (is-bst leftTree) (is-bst rightTree)))
+)
+
+(print (is-bst '(8 (3 (1 () ()) (6 (4 () ())( 7 () ()))) (10 (()) (14 (13) ()))) ))
+(print (is-bst '(8 (9 (1 () ()) (6 (4 () ())( 7 () ()))) (10 (()) (14 (13) ()))) ))
