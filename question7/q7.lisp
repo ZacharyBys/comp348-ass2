@@ -6,6 +6,16 @@
     )
 )
 
+(defun pell-numbers-rec (n)
+    (setq ans '())
+    (loop for x from 0 to n
+        do (
+            setq ans (append ans (list (pell-numbers x)))
+        )
+    )
+    (return-from pell-numbers-rec ans)
+)
+
 (defun pell-numbers-it (n)
     (setq num1 0)
     (setq num2 1)
@@ -23,3 +33,6 @@
 
 (print (pell-numbers-it 6))
 (print (pell-numbers-it 12))
+
+(print (pell-numbers-rec 6))
+(print (pell-numbers-rec 12))
